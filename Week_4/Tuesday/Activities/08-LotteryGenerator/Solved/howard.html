@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Random</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Added link to the jQuery library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<style>
+  .normalball {
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+  }
+  .powerball {
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+  }
+</style>
+<body>
+  <div class="jumbotron">
+    <h1 class="text-center">Generate a Random Number!</h1>
+    <div class="text-center">
+      <!-- Here we have our button for generating random numbers (#random-button) -->
+      <button id="random-button" class="btn btn-primary btn-lg fa fa-question"></button><br>
+      <div style="margin-top: 40px;">
+        <span id="random1" class="normalball"></span>
+        <span id="random2" class="normalball"></span>
+        <span id="random3" class="normalball"></span>
+        <span id="random4" class="normalball"></span>
+        <span id="random5" class="normalball"></span>
+        <span id="powerball" class="powerball"></span>
+      </div>
+    </div>
+  </div>
+  <!-- Here we have div called "randomNumber" where our random number will go -->
+  <h1 class="text-center" id="random-number"></h1>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Notice I didn't set $(".jumbotron") to a var this time?
+      // If you only plan to use that selector once it doesn't need to be a var
+      $("#random-button").on("click", function() {
+        // ... we generate a random number
+        var random1 = Math.floor(Math.random() * 69) + 1;
+        var random2 = Math.floor(Math.random() * 69) + 1;
+        var random3 = Math.floor(Math.random() * 69) + 1;
+        var random4 = Math.floor(Math.random() * 69) + 1;
+        var random5 = Math.floor(Math.random() * 69) + 1;
+        var powerball = Math.floor(Math.random() * 26) + 1;
+        // ... and then dump the random number into our random-number div.
+        $("#random1").text(random1);
+        $("#random2").text(random2);
+        $("#random3").text(random3);
+        $("#random4").text(random4);
+        $("#random5").text(random5);
+        $("#powerball").text(powerball);
+      });
+    });
+  </script>
+</body>
+</html>
